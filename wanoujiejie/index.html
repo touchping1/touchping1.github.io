@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="玩偶姐姐全集在线观看平台，提供高清正版动漫内容，致力于打造优质的二次元文化社区，涵盖热门动漫推荐、分类浏览及最新更新资讯。">
+    <meta name="keywords" content="玩偶姐姐全集在线观看,动漫,二次元,高清视频,在线观看">
+    <title>玩偶姐姐全集在线观看-高清正版动漫推荐与观看平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff4757;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-light: #747d8c;
+            --border-radius: 12px;
+            --spacing-unit: 16px;
+            --nav-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f2f6;
+            border-radius: 20px;
+            padding: 4px 12px;
+            align-items: center;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 4px;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 20px rgba(255, 71, 87, 0.2);
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            opacity: 0.9;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--secondary-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 分类导航 */
+        .category-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none;
+        }
+
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            padding: 8px 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid transparent;
+            color: var(--text-light);
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 网格布局 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #dfe4ea;
+            position: relative;
+        }
+
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-info {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-tags {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #f1f2f6;
+            color: var(--text-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* 热门榜单 */
+        .ranking-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f2f6;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .ranking-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .rank-num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            width: 30px;
+            text-align: center;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .rank-num.top-1 { color: #ff4757; }
+        .rank-num.top-2 { color: #ffa502; }
+        .rank-num.top-3 { color: #eccc68; }
+
+        .rank-info {
+            flex: 1;
+            margin-left: 16px;
+        }
+
+        .rank-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .rank-stats {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2f3542;
+            color: #a4b0be;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 移动端简化导航 */
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .hero-content p {
+                margin: 0 auto 24px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .card-cover {
+                aspect-ratio: 3/4;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <span>玩偶姐姐</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#" class="active">首页</a>
+            <a href="#">全集推荐</a>
+            <a href="#">分类浏览</a>
+            <a href="#">热门榜单</a>
+            <a href="#">关于我们</a>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索作品...">
+            <button>🔍</button>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- 首屏 Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>探索无限创意的二次元世界</h1>
+                <p>提供高清正版动漫内容，致力于打造优质的二次元文化社区，涵盖热门动漫推荐、分类浏览及最新更新资讯。</p>
+                <a href="#" class="btn">立即观看</a>
+            </div>
+            <div class="hero-visual" style="font-size: 4rem; opacity: 0.8;">
+                🎭
+            </div>
+        </section>
+
+        <!-- 分类标签 -->
+        <section class="category-tabs">
+            <div class="tab active">全部</div>
+            <div class="tab">热门推荐</div>
+            <div class="tab">最新更新</div>
+            <div class="tab">经典回顾</div>
+            <div class="tab">独家制作</div>
+            <div class="tab">高清专区</div>
+        </section>
+
+        <!-- 热门推荐网格 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">热门推荐</h2>
+                <a href="#" style="color: var(--secondary-color); font-size: 0.9rem; font-weight: 600;">查看更多 &rarr;</a>
+            </div>
+            <div class="grid">
+                <!-- 卡片 1 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/anime1/300/450" alt="动漫封面">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">梦幻之森的冒险</h3>
+                        <div class="card-meta">
+                            <span>更新至 12 话</span>
+                            <span>2023-10</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">冒险</span>
+                            <span class="tag">治愈</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/anime2/300/450" alt="动漫封面">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">都市传说侦探社</h3>
+                        <div class="card-meta">
+                            <span>连载中</span>
+                            <span>9.8分</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">悬疑</span>
+                            <span class="tag">推理</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/anime3/300/450" alt="动漫封面">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">星空下的约定</h3>
+                        <div class="card-meta">
+                            <span>已完结</span>
+                            <span>10.0分</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">恋爱</span>
+                            <span class="tag">校园</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 4 -->
+                <article class="card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/anime4/300/450" alt="动漫封面">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">机甲觉醒时代</h3>
+                        <div class="card-meta">
+                            <span>更新至 5 话</span>
+                            <span>科幻</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">科幻</span>
+                            <span class="tag">机甲</span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- 卡片 5 -->
+                 <article class="card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/anime5/300/450" alt="动漫封面">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">魔法少女的日常</h3>
+                        <div class="card-meta">
+                            <span>连载中</span>
+                            <span>9.5分</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">魔法</span>
+                            <span class="tag">搞笑</span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- 卡片 6 -->
+                 <article class="card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/anime6/300/450" alt="动漫封面">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">深渊之下的回响</h3>
+                        <div class="card-meta">
+                            <span>独家首发</span>
+                            <span>恐怖</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">恐怖</span>
+                            <span class="tag">剧情</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 榜单区域 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">本周热门榜单</h2>
+            </div>
+            <div class="ranking-list">
+                <div class="ranking-item">
+                    <div class="rank-num top-1">1</div>
+                    <div class="rank-info">
+                        <div class="rank-title">时空旅人的日记</div>
+                        <div class="rank-stats">播放量: 2.3M · 收藏: 500K</div>
+                    </div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num top-2">2</div>
+                    <div class="rank-info">
+                        <div class="rank-title">深海潜行者</div>
+                        <div class="rank-stats">播放量: 1.8M · 收藏: 320K</div>
+                    </div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num top-3">3</div>
+                    <div class="rank-info">
+                        <div class="rank-title">幻影忍者传说</div>
+                        <div class="rank-stats">播放量: 1.5M · 收藏: 280K</div>
+                    </div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num">4</div>
+                    <div class="rank-info">
+                        <div class="rank-title">赛博朋克：边缘行者</div>
+                        <div class="rank-stats">播放量: 1.2M · 收藏: 210K</div>
+                    </div>
+                </div>
+                <div class="ranking-item">
+                    <div class="rank-num">5</div>
+                    <div class="rank-info">
+                        <div class="rank-title">猫咪物语：日常篇</div>
+                        <div class="rank-stats">播放量: 980K · 收藏: 190K</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类浏览 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">分类浏览</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+                <a href="#" class="card" style="padding: 24px; text-align: center; height: auto;">
+                    <div style="font-size: 2rem; margin-bottom: 8px;">⚔️</div>
+                    <div>动作</div>
+                </a>
+                <a href="#" class="card" style="padding: 24px; text-align: center; height: auto;">
+                    <div style="font-size: 2rem; margin-bottom: 8px;">🔮</div>
+                    <div>奇幻</div>
+                </a>
+                <a href="#" class="card" style="padding: 24px; text-align: center; height: auto;">
+                    <div style="font-size: 2rem; margin-bottom: 8px;">❤️</div>
+                    <div>恋爱</div>
+                </a>
+                <a href="#" class="card" style="padding: 24px; text-align: center; height: auto;">
+                    <div style="font-size: 2rem; margin-bottom: 8px;">🚀</div>
+                    <div>科幻</div>
+                </a>
+                <a href="#" class="card" style="padding: 24px; text-align: center; height: auto;">
+                    <div style="font-size: 2rem; margin-bottom: 8px;">👻</div>
+                    <div>恐怖</div>
+                </a>
+                <a href="#" class="card" style="padding: 24px; text-align: center; height: auto;">
+                    <div style="font-size: 2rem; margin-bottom: 8px;">🏆</div>
+                    <div>竞技</div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于平台</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>内容分类</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">最新上线</a></li>
+                        <li><a href="#">高分榜单</a></li>
+                        <li><a href="#">经典回顾</a></li>
+                        <li><a href="#">独家专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">观看指南</a></li>
+                        <li><a href="#">设备支持</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">订阅我们的最新动态，获取第一手动漫资讯。</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 玩偶姐姐在线观看平台 版权所有. 仅供交流学习使用.
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
