@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩国男子虐杀女儿事件专题页面。提供案件背景回顾、时间线梳理、社会讨论焦点及相关法律分析，旨在客观呈现事实并引发对家庭暴力与心理健康的反思。">
+    <meta name="keywords" content="韩国男子虐杀女儿,韩国女儿被杀,韩国虐杀案,家庭暴力,社会新闻">
+    <title>韩国男子虐杀女儿-案件回顾与社会反思专题</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --accent-color: #d32f2f;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/news/1600/900.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--border-color);
+            margin-left: 1rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Analysis Section */
+        .analysis-box {
+            background-color: #fff;
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .analysis-box h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            padding: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-secondary);
+            background-color: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1rem 1rem 1rem;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .timeline {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>社会观察</span> 案件档案
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#overview">案件概览</a></li>
+                <li><a href="#timeline">时间线</a></li>
+                <li><a href="#analysis">深度分析</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>韩国男子虐杀女儿</h1>
+        <p>一起令人痛心的家庭悲剧，引发社会对家庭暴力、心理健康及法律保护的深刻反思。</p>
+    </div>
+</section>
+
+<main class="container">
+    
+    <!-- Overview Section -->
+    <section id="overview">
+        <h2 class="section-title">案件概览</h2>
+        <article class="analysis-box">
+            <h3>事件背景与核心事实</h3>
+            <p>韩国发生的这起案件是一起典型的家庭内部暴力致死事件。案件涉及一名成年男性对其未成年女儿实施了长期的虐待行为，最终导致悲剧发生。此类案件在韩国社会曾引发巨大的震动，促使公众重新审视家庭内部暴力的隐蔽性及其严重后果。警方介入后，案件经过调查取证，最终确认了虐待行为与死亡结果的因果关系。</p>
+        </article>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/justice/400/300.jpg" alt="法律正义">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">司法介入</h3>
+                    <p class="card-text">警方在接到报案或发现尸体后迅速展开调查，通过现场勘查、证人询问及证据收集，最终将嫌疑人逮捕归案。</p>
+                    <div class="card-meta">法律程序</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/support/400/300.jpg" alt="社会支持">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">社会关注</h3>
+                    <p class="card-text">案件曝光后，引发了韩国社会广泛的舆论关注，呼吁加强针对儿童的监护制度及家庭暴力预防机制。</p>
+                    <div class="card-meta">公共舆论</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/mental/400/300.jpg" alt="心理健康">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">心理警示</h3>
+                    <p class="card-text">案件警示社会关注施暴者的心理状态及家庭沟通问题，强调早期干预对于预防悲剧的重要性。</p>
+                    <div class="card-meta">心理健康</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" style="margin-top: 4rem;">
+        <h2 class="section-title">关键时间节点</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">案件发生初期</div>
+                <p>据调查，虐待行为并非偶发，而是长期存在。女儿在遭受暴力期间可能曾试图寻求帮助，但未能有效获得外部干预。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">悲剧发生时刻</div>
+                <p>在特定的时间节点，暴力行为升级，最终导致了不可挽回的后果，女儿不幸离世。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">警方介入与调查</div>
+                <p>发现尸体后，警方立即封锁现场并展开全面调查。邻居或亲属的证词成为了还原案件经过的重要依据。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">司法审判阶段</div>
+                <p>嫌疑人被正式起诉，案件进入司法程序。法庭审理了虐待的细节及动机，最终做出了判决。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" style="margin-top: 4rem;">
+        <h2 class="section-title">深度分析</h2>
+        <div class="grid-2">
+            <article class="analysis-box">
+                <h3>家庭暴力的隐蔽性与识别</h3>
+                <p>家庭暴力往往发生在私密空间，受害者（特别是儿童）由于恐惧或依赖，很难主动向外求助。这起案件反映出在家庭内部，暴力行为可能长期被掩盖。识别家庭暴力的信号（如频繁受伤、精神状态异常、对父母表现出极度的恐惧等）对于及时介入至关重要。</p>
+            </article>
+            <article class="analysis-box">
+                <h3>社会支持体系的不足</h3>
+                <p>虽然韩国近年来出台了多项反家暴法律，但在实际执行层面，如何确保受害者获得持续的保护，以及如何对施暴者进行有效的矫治，仍是社会面临的挑战。这起案件促使公众讨论如何建立更完善的多部门联动机制。</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" style="margin-top: 4rem;">
+        <h2 class="section-title">常见问题</h2>
+        <div class="faq-item">
+            <div class="faq-question">这起案件反映了哪些社会问题？</div>
+            <div class="faq-answer">
+                该案集中反映了家庭暴力的隐蔽性、儿童保护机制的漏洞以及施暴者心理问题的严重性。它警示社会必须正视家庭内部的暴力行为，并加强预防措施。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">如何识别身边的家庭暴力受害者？</div>
+            <div class="faq-answer">
+                观察受害者是否有不明原因的伤痕、精神萎靡、缺课、或者对家庭成员表现出过度的顺从和恐惧。如果发现异常迹象，应尝试通过安全渠道提供帮助或向相关部门报告。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">如果遭遇家庭暴力应该怎么做？</div>
+            <div class="faq-answer">
+                首先确保自身安全，尽量远离施暴者。其次，保留相关证据（如照片、录音、病历等），并寻求亲友、社区或警方的帮助。韩国设有专门的反家暴热线，受害者应积极利用这些资源。
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">
+                    本站致力于提供客观、理性的社会案件回顾与深度分析。我们关注社会热点，旨在通过事实梳理引发公众对法治与道德的思考。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>相关栏目</h4>
+                <ul>
+                    <li><a href="#">社会新闻</a></li>
+                    <li><a href="#">法律解读</a></li>
+                    <li><a href="#">心理健康</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>法律声明</h4>
+                <ul>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 社会观察案件档案. All Rights Reserved. 内容仅供学术参考与舆论监督.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // FAQ Toggle Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+      </html>
