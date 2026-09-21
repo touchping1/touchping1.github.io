@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="少林寺电影专题页 - 提供经典少林功夫电影回顾、经典场景赏析、幕后制作花絮及少林文化相关影视资源推荐。">
+    <meta name="keywords" content="电影少林寺, 少林寺电影, 李连杰, 经典功夫片, 武侠电影">
+    <title>电影少林寺-经典功夫传奇与少林文化影像回顾</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c0392b;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/shaolin_temple/1600/900');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #a93226;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #666;
+        }
+
+        /* Movie Grid */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .movie-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .movie-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-outline {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: var(--bg-white);
+        }
+
+        .feature-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .feature-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-list {
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(192, 57, 43, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Data/Stats */
+        .stats-section {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .feature-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>少林</span>影库
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">经典回顾</a></li>
+                    <li><a href="#">幕后花絮</a></li>
+                    <li><a href="#">文化赏析</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>一代宗师：少林功夫电影全纪录</h1>
+                <p>从1982年经典《少林寺》开启中国功夫电影新浪潮，到如今无数续作与致敬之作。在这里，重温少林文化的视觉盛宴。</p>
+                <button class="btn">开始观看</button>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>相关影视作品</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40+</h3>
+                    <p>经典功夫场景</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>少林流派解析</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content: Classic Movies -->
+        <section class="container">
+            <div class="section-header">
+                <h2>必看经典：少林题材电影推荐</h2>
+                <p>盘点那些将少林武术与侠义精神完美融合的银幕佳作</p>
+            </div>
+
+            <div class="movie-grid">
+                <!-- Movie 1 -->
+                <article class="movie-card">
+                    <div class="card-image">
+                        <span class="card-badge">经典</span>
+                        <img src="https://picsum.photos/seed/movie1/400/600" alt="少林寺电影海报">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">少林寺 (1982)</h3>
+                        <div class="card-meta">
+                            <span>李连杰</span>
+                            <span>1小时52分</span>
+                        </div>
+                        <p class="card-desc">由袁和平执导，李连杰主演。影片讲述了隋唐年间，小和尚觉远在少林寺习武并最终成为一代宗师的传奇故事。该片曾创下当时中国电影的最高票房纪录。</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-outline">剧情简介</a>
+                            <a href="#" class="btn-outline">观看视频</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie 2 -->
+                <article class="movie-card">
+                    <div class="card-image">
+                        <span class="card-badge">动作</span>
+                        <img src="https://picsum.photos/seed/movie2/400/600" alt="少林寺之得宝传奇海报">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">少林寺之得宝传奇</h3>
+                        <div class="card-meta">
+                            <span>释小龙</span>
+                            <span>1小时40分</span>
+                        </div>
+                        <p class="card-desc">释小龙主演的续作，延续了少林寺的师兄弟情谊与武侠冒险。影片展现了少林功夫在现代社会中的传承与挑战，动作设计紧凑流畅。</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-outline">剧情简介</a>
+                            <a href="#" class="btn-outline">观看视频</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie 3 -->
+                <article class="movie-card">
+                    <div class="card-image">
+                        <span class="card-badge">武侠</span>
+                        <img src="https://picsum.photos/seed/movie3/400/600" alt="少林寺十八铜人海报">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">少林寺十八铜人</h3>
+                        <div class="card-meta">
+                            <span>于荣光</span>
+                            <span>1小时45分</span>
+                        </div>
+                        <p class="card-desc">讲述了年轻武僧在严苛训练下，通过十八铜人阵考验，最终领悟武学真谛的故事。影片注重写实风格，还原了少林寺的修行生活。</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-outline">剧情简介</a>
+                            <a href="#" class="btn-outline">观看视频</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie 4 -->
+                <article class="movie-card">
+                    <div class="card-image">
+                        <span class="card-badge">喜剧</span>
+                        <img src="https://picsum.photos/seed/movie4/400/600" alt="少林足球海报">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">少林足球 (2001)</h3>
+                        <div class="card-meta">
+                            <span>周星驰</span>
+                            <span>1小时42分</span>
+                        </div>
+                        <p class="card-desc">周星驰执导并主演，将少林功夫与足球结合。影片虽然风格幽默夸张，但其中对少林精神的诠释——“做人如果没有梦想，跟咸鱼有什么分别”，深入人心。</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-outline">剧情简介</a>
+                            <a href="#" class="btn-outline">观看视频</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Feature Section -->
+        <section class="feature-section">
+            <div class="container feature-container">
+                <div class="feature-image">
+                    <img src="https://picsum.photos/seed/monk/600/400" alt="少林武僧练习">
+                </div>
+                <div class="feature-content">
+                    <h3>少林功夫：不止于银幕</h3>
+                    <p>电影中的少林寺往往充满了戏剧性的冲突和绚丽的打斗场面，但现实中的少林功夫更强调修身养性与内外兼修。</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">✦</div>
+                            <div class="feature-text">
+                                <h4>禅武合一</h4>
+                                <p>少林功夫的核心在于禅，强调在习武中参禅，在参禅中习武，达到身心合一的境界。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚔</div>
+                            <div class="feature-text">
+                                <h4>实战与表演</h4>
+                                <p>电影中的招式多为表演性质，经过艺术加工。真实的少林拳法讲究刚柔并济，步法灵活。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📜</div>
+                            <div class="feature-text">
+                                <h4>文化传承</h4>
+                                <p>少林寺不仅是武术圣地，也是佛教文化的中心，现存有大量珍贵的历史文物和碑刻。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于少林寺电影及相关文化的疑问</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">哪一部是最经典的少林寺电影？</summary>
+                    <p style="margin-top: 10px; color: #666;">1982年由袁和平执导、李连杰主演的《少林寺》通常被公认为最经典之作，它不仅确立了李连杰的动作巨星地位，也开启了中国功夫电影在海外的热潮。</p>
+                </details>
+                <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">少林功夫在电影中是如何被表现的？</summary>
+                    <p style="margin-top: 10px; color: #666;">电影中通常将少林功夫夸张化、艺术化，强调爆发力和视觉美感。同时，也会通过电影情节来展现少林寺的清规戒律和师徒情谊。</p>
+                </details>
+                <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 1.1rem;">少林寺电影适合儿童观看吗？</summary>
+                    <p style="margin-top: 10px; color: #666;">大多数少林题材电影属于动作片，包含打斗场面。家长应根据电影的分级和具体内容进行选择，部分影片可能包含暴力元素。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于影库</h4>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">经典功夫</a></li>
+                        <li><a href="#">少林专题</a></li>
+                        <li><a href="#">武侠系列</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">武术教程</a></li>
+                        <li><a href="#">佛教文化</a></li>
+                        <li><a href="#">历史古迹</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 少林影库. 保留所有权利. 本站内容仅供学习交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
