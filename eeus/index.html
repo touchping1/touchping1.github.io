@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="eeuss影院骑兵区高清播放提供最新电影、电视剧、动漫、综艺等高清视频资源，支持在线观看与下载，致力于为用户打造流畅、稳定的观影体验。">
+    <meta name="keywords" content="eeuss影院骑兵区高清播放,高清电影,在线观看,免费影视">
+    <title>eeuss影院骑兵区高清播放-最新影视资源与高清在线观看平台</title>
+    <style>
+        :root {
+            --primary-color: #e50914; /* 影院红 */
+            --primary-hover: #b20710;
+            --bg-dark: #141414;
+            --bg-card: #1f1f1f;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+            --border-radius: 4px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            background: #333;
+            border: none;
+            padding: 6px 10px;
+            color: #fff;
+            border-radius: 2px 0 0 2px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            border: none;
+            color: #fff;
+            padding: 0 15px;
+            border-radius: 0 2px 2px 0;
+            cursor: pointer;
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(to top, var(--bg-dark), transparent), url('https://picsum.photos/seed/cinema/1200/600') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px var(--spacing-unit);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-tag {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            color: #ddd;
+            max-width: 600px;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #fff;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* 主体布局 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px var(--spacing-unit);
+            flex: 1;
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .cat-item {
+            background: var(--bg-card);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .cat-item:hover, .cat-item.active {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* 内容网格 */
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .section-title a {
+            margin-left: auto;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .card-thumb {
+            position: relative;
+            aspect-ratio: 2/3;
+            background: #000;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .quality-tag {
+            color: #46d369;
+            font-weight: bold;
+        }
+
+        /* 列表布局 */
+        .list-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .list-item {
+            display: flex;
+            background: var(--bg-card);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            align-items: center;
+        }
+
+        .list-thumb {
+            width: 120px;
+            height: 80px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
+        .list-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .list-content {
+            flex: 1;
+        }
+
+        .list-title {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .list-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .list-tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            color: #ccc;
+        }
+
+        .list-actions {
+            text-align: right;
+        }
+
+        .play-btn {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #000;
+            padding: 40px var(--spacing-unit) 20px;
+            margin-top: auto;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 0;
+            }
+            
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+
+            .search-box {
+                order: 2;
+                margin: 5px 0;
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero {
+                height: 300px;
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .list-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .list-thumb {
+                width: 100%;
+                height: 180px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .list-actions {
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">eeuss<span>影院</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">电影</a></li>
+                    <li><a href="#">电视剧</a></li>
+                    <li><a href="#">动漫</a></li>
+                    <li><a href="#">综艺</a></li>
+                    <li><a href="#">骑兵区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索影片...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">热门推荐</span>
+            <h1>星际穿越：时空重启</h1>
+            <p>一部关于人类在宇宙边缘探索与救赎的科幻巨作，带来前所未有的视觉震撼与情感共鸣。</p>
+            <div>
+                <a href="#" class="btn">立即播放</a>
+                <a href="#" class="btn btn-outline">加入片单</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 分类标签 -->
+        <div class="category-nav">
+            <div class="cat-item active">全部</div>
+            <div class="cat-item">动作片</div>
+            <div class="cat-item">喜剧片</div>
+            <div class="cat-item">科幻片</div>
+            <div class="cat-item">恐怖片</div>
+            <div class="cat-item">爱情片</div>
+            <div class="cat-item">剧情片</div>
+            <div class="cat-item">纪录片</div>
+            <div class="cat-item">战争片</div>
+        </div>
+
+        <!-- 首页轮播/推荐内容 -->
+        <section>
+            <h2 class="section-title">正在热播 <a href="#">查看更多 &gt;</a></h2>
+            <div class="grid-layout">
+                <!-- 卡片 1 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie1/300/450" alt="电影封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">深海迷航：遗迹</h3>
+                        <div class="card-meta">
+                            <span>2023</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 2 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie2/300/450" alt="电影封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">城市之光：警探故事</h3>
+                        <div class="card-meta">
+                            <span>2023</span>
+                            <span class="quality-tag">1080P</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 3 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie3/300/450" alt="电影封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">极速狂飙：赛车传奇</h3>
+                        <div class="card-meta">
+                            <span>2022</span>
+                            <span class="quality-tag">4K</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 4 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie4/300/450" alt="电影封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">幻影森林：奇幻冒险</h3>
+                        <div class="card-meta">
+                            <span>2023</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 5 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie5/300/450" alt="电影封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">最后的防线</h3>
+                        <div class="card-meta">
+                            <span>2021</span>
+                            <span class="quality-tag">720P</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- 卡片 6 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie6/300/450" alt="电影封面">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">云端之上</h3>
+                        <div class="card-meta">
+                            <span>2023</span>
+                            <span class="quality-tag">HD</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 列表内容 -->
+        <section>
+            <h2 class="section-title">骑兵区精选 <a href="#">查看更多 &gt;</a></h2>
+            <div class="list-layout">
+                <!-- 列表项 1 -->
+                <div class="list-item">
+                    <div class="list-thumb">
+                        <img src="https://picsum.photos/seed/drama1/200/133" alt="剧集封面">
+                    </div>
+                    <div class="list-content">
+                        <h3 class="list-title">权力的游戏：凛冬将至</h3>
+                        <p class="list-desc">在这个冰与火之歌的世界里，七大王国为了争夺铁王座展开了殊死搏斗，忠诚与背叛交织成一幅宏大的历史画卷。</p>
+                        <div class="list-tags">
+                            <span class="tag">奇幻</span>
+                            <span class="tag">史诗</span>
+                            <span class="tag">战争</span>
+                        </div>
+                    </div>
+                    <div class="list-actions">
+                        <span class="play-btn">立即播放 &gt;</span>
+                    </div>
+                </div>
+
+                <!-- 列表项 2 -->
+                <div class="list-item">
+                    <div class="list-thumb">
+                        <img src="https://picsum.photos/seed/drama2/200/133" alt="剧集封面">
+                    </div>
+                    <div class="list-content">
+                        <h3 class="list-title">东京爱情故事：重制版</h3>
+                        <p class="list-desc">经典的都市爱情故事，讲述了赤名莉香与永尾完治之间令人心碎又温暖的情感纠葛，重温80年代的青春记忆。</p>
+                        <div class="list-tags">
+                            <span class="tag">爱情</span>
+                            <span class="tag">剧情</span>
+                        </div>
+                    </div>
+                    <div class="list-actions">
+                        <span class="play-btn">立即播放 &gt;</span>
+                    </div>
+                </div>
+
+                <!-- 列表项 3 -->
+                <div class="list-item">
+                    <div class="list-thumb">
+                        <img src="https://picsum.photos/seed/drama3/200/133" alt="剧集封面">
+                    </div>
+                    <div class="list-content">
+                        <h3 class="list-title">黑客帝国：觉醒</h3>
+                        <p class="list-desc">尼奥必须从沉睡中醒来，面对前所未有的强敌，重新夺回被机器控制的现实世界，开启新的战斗篇章。</p>
+                        <div class="list-tags">
+                            <span class="tag">科幻</span>
+                            <span class="tag">动作</span>
+                        </div>
+                    </div>
+                    <div class="list-actions">
+                        <span class="play-btn">立即播放 &gt;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于 eeuss影院</h3>
+                <p style="color: #999; font-size: 0.9rem; line-height: 1.8;">
+                    eeuss影院致力于为用户提供最新、最全的高清影视资源。我们尊重版权，所有内容均来源于网络，仅供个人学习交流使用，请勿用于商业用途。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门分类</h3>
+                <ul>
+                    <li><a href="#">动作片</a></li>
+                    <li><a href="#">喜剧片</a></li>
+                    <li><a href="#">科幻片</a></li>
+                    <li><a href="#">恐怖片</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">播放器使用说明</a></li>
+                    <li><a href="#">如何下载</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 eeuss影院骑兵区高清播放. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+              </html>
