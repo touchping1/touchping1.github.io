@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一线天 - 中国自然奇观摄影与旅游指南</title>
+    <meta name="description" content="一线天旅游指南：探索中国著名的一线天自然景观，提供深度摄影攻略、最佳观赏季节、路线导航及地质科普知识。">
+    <meta name="keywords" content="一线天,自然奇观,峡谷摄影,旅游攻略,地质景观">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/canyon/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #666;
+        }
+
+        /* Featured Destinations Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Knowledge Section */
+        .knowledge-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .knowledge-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .knowledge-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .knowledge-list {
+            list-style: none;
+        }
+
+        .knowledge-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .knowledge-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary-color);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        details[open] summary::after {
+            content: "-";
+        }
+
+        .faq-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .knowledge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                一线天<span>奇观</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#destinations">热门景区</a></li>
+                    <li><a href="#guide">游览指南</a></li>
+                    <li><a href="#photography">摄影技巧</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>探索“一线天”的壮丽</h1>
+                <p>深入峡谷，仰望苍穹。这里汇聚了中国最震撼的自然地质奇观，为您带来极致的视觉体验与旅行灵感。</p>
+                <a href="#destinations" class="btn">开始探索</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Destinations Section -->
+            <section id="destinations">
+                <div class="section-header">
+                    <h2>热门一线天景区</h2>
+                    <p>精选国内最具代表性的狭窄峡谷景观</p>
+                </div>
+                <div class="grid">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/canyon1/400/300" alt="武夷山一线天">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">福建武夷山</span>
+                            <h3 class="card-title">武夷山一线天</h3>
+                            <p class="card-desc">全长约180米的天然石洞，抬头仅见一线天光，是武夷山最著名的景点之一。</p>
+                            <div class="card-footer">
+                                <span>⭐ 4.9</span>
+                                <span>📍 福建省南平市</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/canyon2/400/300" alt="青城山一线天">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">四川青城山</span>
+                            <h3 class="card-title">青城山一线天</h3>
+                            <p class="card-desc">幽静深邃，两侧峭壁如削，行走其间仿佛穿越时空，感受道教圣地的清幽。</p>
+                            <div class="card-footer">
+                                <span>⭐ 4.7</span>
+                                <span>📍 四川省都江堰</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/canyon3/400/300" alt="雁荡山一线天">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">浙江雁荡山</span>
+                            <h3 class="card-title">雁荡山一线天</h3>
+                            <p class="card-desc">高达105米的垂直峡谷，光线折射效果极佳，是摄影爱好者的天堂。</p>
+                            <div class="card-footer">
+                                <span>⭐ 4.8</span>
+                                <span>📍 浙江省温州市</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/canyon4/400/300" alt="黄山一线天">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">安徽黄山</span>
+                            <h3 class="card-title">黄山百步云梯</h3>
+                            <p class="card-desc">虽非典型一线天，但其陡峭狭窄的栈道结构，给人极强的压迫感与挑战欲。</p>
+                            <div class="card-footer">
+                                <span>⭐ 4.9</span>
+                                <span>📍 安徽省黄山市</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Knowledge Section -->
+            <section id="guide" class="knowledge-section">
+                <div class="knowledge-grid">
+                    <div class="knowledge-text">
+                        <h3>什么是“一线天”？</h3>
+                        <p>“一线天”是喀斯特地貌中常见的一种景观，又称“天缝”。由于地壳运动、风化侵蚀以及流水的切割作用，使得两座山体或峭壁之间的缝隙逐渐变窄，最终形成顶部狭窄、底部宽阔的峡谷形态。</p>
+                        <ul class="knowledge-list">
+                            <li><strong>地质成因：</strong> 垂直节理发育与溶蚀作用共同作用。</li>
+                            <li><strong>观赏价值：</strong> 感受大自然的鬼斧神工，体验“抬头见一线”的视觉冲击。</li>
+                            <li><strong>气候特征：</strong> 通常温度较低，湿度较大，常伴有云雾缭绕。</li>
+                        </ul>
+                    </div>
+                    <div class="knowledge-image">
+                        <img src="https://picsum.photos/seed/geology/600/400" alt="地质科普示意图" style="width:100%; border-radius: 8px; box-shadow: var(--shadow);">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photography Tips -->
+            <section id="photography" style="margin-bottom: 3rem;">
+                <div class="section-header">
+                    <h2>摄影指南</h2>
+                    <p>如何拍出震撼的一线天大片？</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                        <h4>利用光线</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">选择清晨或傍晚拍摄，侧逆光能勾勒出峡谷的轮廓，增强立体感。</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                        <h4>广角运用</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">使用广角镜头，将两侧峭壁纳入画面，强调空间的狭窄与深邃。</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color);">
+                        <h4>长曝光</h4>
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">如果峡谷内有流云或瀑布，使用三脚架和长曝光可以拍出梦幻效果。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>一线天景区游览需要多长时间？</summary>
+                        <div class="faq-content">
+                            一般的一线天景区（如武夷山）游览时间约为30-60分钟。如果包含周边步道和休息区，建议预留2小时左右。建议穿着舒适的运动鞋。
+                        </div>
+                    </details>
+                    <details>
+                        <summary>一线天适合儿童和老人吗？</summary>
+                        <div class="faq-content">
+                            大部分一线天景观需要攀爬台阶或穿行狭窄通道。对于腿脚不便、患有恐高症或行动不便的老人、儿童，建议谨慎前往或选择其他平缓路线。
+                        </div>
+                    </details>
+                    <details>
+                        <summary>最佳游览季节是什么时候？</summary>
+                        <div class="faq-content">
+                            春秋两季（4-5月，9-10月）是游览一线天的好时节，气温适宜，且雨水较少，能见度高。夏季需注意防暑降温，部分峡谷可能有蚊虫。
+                        </div>
+                    </details>
+                    <details>
+                        <summary>一线天景区门票包含哪些项目？</summary>
+                        <div class="faq-content">
+                            门票通常仅包含进入核心景区和一线天通道的权限。部分景区可能包含摆渡车或缆车费用，具体请以当地景区官方公告为准。
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于一线天奇观</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">致力于推广中国自然地质景观，为旅行者和摄影爱好者提供最专业的资讯与服务。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#destinations">热门景区</a></li>
+                    <li><a href="#guide">游览指南</a></li>
+                    <li><a href="#photography">摄影技巧</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关资源</h4>
+                <ul>
+                    <li><a href="#">地质科普百科</a></li>
+                    <li><a href="#">户外安全手册</a></li>
+                    <li><a href="#">摄影器材推荐</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 一线天奇观旅游指南. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
