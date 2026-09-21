@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="十万次相亲 - 专业婚恋情感社区，分享相亲经历、避坑指南、脱单技巧与真实案例，助您在茫茫人海中找到对的人。">
+    <meta name="keywords" content="十万次相亲, 相亲经历, 脱单技巧, 婚恋指南, 恋爱建议">
+    <title>十万次相亲 - 真实相亲经历分享与脱单避坑指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-color: #2d3436;
+            --light-bg: #f7f9fc;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-sub: #636e72;
+            --spacing-unit: 16px;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--light-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--dark-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #ff5252;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+        }
+
+        /* Article List */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .article-tag {
+            background-color: #ffe3e3;
+            color: #d63031;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .article-excerpt {
+            color: var(--text-sub);
+            margin-bottom: 16px;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #b2bec3;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .guide-list span {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        /* Interactive Form */
+        .form-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-block:hover {
+            background-color: #3dbdb4;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            padding-left: 24px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #b2bec3;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Utilities */
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .badge-danger { background: #ffe3e3; color: #d63031; }
+        .badge-success { background: #e3f9e5; color: #00b894; }
+        .badge-warning { background: #fff8e1; color: #fdcb6e; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                十万次相亲<span>社区</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">经历分享</a></li>
+                    <li><a href="#">脱单指南</a></li>
+                    <li><a href="#">避坑档案</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </nav>
+            <a href="#submit-story" class="btn-submit">分享经历</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>记录每一次相遇，找到那个对的人</h1>
+                <p>这里汇聚了十万次相亲的真实故事。无论你是正在经历尴尬的相亲，还是已经脱单成功，我们都想倾听你的故事，为你提供避坑指南和情感建议。</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">10万+</span>
+                        <span class="stat-label">真实案例</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">避坑指南</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20k+</span>
+                        <span class="stat-label">成功脱单</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Content Area -->
+                <div class="main-column">
+                    <section>
+                        <div class="section-title">
+                            <span>最新相亲经历</span>
+                            <a href="#" class="view-all">查看全部 &rarr;</a>
+                        </div>
+
+                        <!-- Article 1 -->
+                        <article class="article-card">
+                            <div class="article-meta">
+                                <span class="article-tag">相亲失败</span>
+                                <span>2小时前</span>
+                                <span>来自：上海</span>
+                            </div>
+                            <h2 class="article-title"><a href="#">相亲遇到“妈宝男”实录：一顿饭吃出了三观不合</a></h2>
+                            <p class="article-excerpt">这次相亲是我最尴尬的一次经历。对方见面时全程都在打电话跟妈妈汇报，点菜也要问妈妈喜不喜欢吃辣。短短两小时，我已经确定这人不能要了...</p>
+                            <div class="article-footer">
+                                <span>阅读 3,420</span>
+                                <span>评论 128</span>
+                            </div>
+                        </article>
+
+                        <!-- Article 2 -->
+                        <article class="article-card">
+                            <div class="article-meta">
+                                <span class="article-tag badge-success">相亲成功</span>
+                                <span>5小时前</span>
+                                <span>来自：广州</span>
+                            </div>
+                            <h2 class="article-title"><a href="#">相亲三个月，我们终于领证了：真诚是必杀技</a></h2>
+                            <p class="article-excerpt">以前我很抗拒相亲，觉得这很功利。但这次通过十万次相亲社区认识的他，让我看到了相亲的另一种可能。没有套路，只有真诚的交流...</p>
+                            <div class="article-footer">
+                                <span>阅读 5,890</span>
+                                <span>评论 256</span>
+                            </div>
+                        </article>
+
+                        <!-- Article 3 -->
+                        <article class="article-card">
+                            <div class="article-meta">
+                                <span class="article-tag badge-warning">奇葩经历</span>
+                                <span>昨天</span>
+                                <span>来自：北京</span>
+                            </div>
+                            <h2 class="article-title"><a href="#">相亲对象要求我婚前上交工资卡？这算什么逻辑？</a></h2>
+                            <p class="article-excerpt">这已经是这个月遇到的第三个提这种要求的相亲对象了。有些人对婚姻的理解是不是太狭隘了？婚姻应该是合伙经营，而不是单方面被掌控...</p>
+                            <div class="article-footer">
+                                <span>阅读 8,120</span>
+                                <span>评论 432</span>
+                            </div>
+                        </article>
+
+                        <!-- Article 4 -->
+                        <article class="article-card">
+                            <div class="article-meta">
+                                <span class="article-tag">情感建议</span>
+                                <span>2天前</span>
+                                <span>来自：成都</span>
+                            </div>
+                            <h2 class="article-title"><a href="#">相亲时如何避免尴尬？这5个技巧让你从容应对</a></h2>
+                            <p class="article-excerpt">相亲最怕的就是冷场和尴尬。其实只要准备得当，相亲也可以变成一场愉快的社交活动。以下是我总结的一些实用技巧...</p>
+                            <div class="article-footer">
+                                <span>阅读 12,500</span>
+                                <span>评论 890</span>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Submit Story Widget -->
+                    <div id="submit-story" class="sidebar-widget form-box">
+                        <h3 class="widget-title">匿名分享你的故事</h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">你的经历可能帮助到很多人，请放心匿名提交。</p>
+                        <form onsubmit="event.preventDefault(); alert('感谢分享！我们会尽快审核。');">
+                            <div class="form-group">
+                                <label>你的状态</label>
+                                <select>
+                                    <option>正在相亲中</option>
+                                    <option>相亲失败</option>
+                                    <option>相亲成功</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>相亲对象情况</label>
+                                <input type="text" placeholder="例如：海归、公务员、大龄离异...">
+                            </div>
+                            <div class="form-group">
+                                <label>一句话总结</label>
+                                <textarea rows="3" placeholder="简短描述这次相亲的经历..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-block">提交经历</button>
+                        </form>
+                    </div>
+
+                    <!-- Popular Guides -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">热门避坑指南</h3>
+                        <ul class="guide-list">
+                            <li><a href="#"><span>查征信防骗指南</span> <span class="badge badge-danger">必读</span></a></li>
+                            <li><a href="#"><span>如何识别杀猪盘</span> <span>1.2w阅读</span></a></li>
+                            <li><a href="#"><span>相亲AA制潜规则</span> <span>8k阅读</span></a></li>
+                            <li><a href="#"><span>见家长送什么礼物</span> <span>6k阅读</span></a></li>
+                            <li><a href="#"><span>如何委婉拒绝奇葩</span> <span>5k阅读</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Ad Placeholder -->
+                    <div style="background: #e0e0e0; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #999;">
+                        广告位：脱单服务 / 婚恋咨询
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <span>常见问题 (FAQ)</span>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">什么是“十万次相亲”社区？ <span>+</span></div>
+                        <div class="faq-answer">这是一个专注于分享相亲经历、提供脱单建议和情感咨询的开放社区。我们收集并整理了数万条真实的相亲案例，帮助单身人士规避风险，提高成功率。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">分享经历需要实名吗？ <span>+</span></div>
+                        <div class="faq-answer">不需要。我们支持完全匿名发布，您可以保护自己的隐私。如果您愿意，也可以选择公开昵称和头像。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何提高相亲成功率？ <span>+</span></div>
+                        <div class="faq-answer">建议先完善个人资料，明确自己的择偶标准。在见面时保持真诚、礼貌，多倾听对方。同时，多参考社区里的避坑指南，了解常见的雷区。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        十万次相亲致力于打造最真实的相亲故事分享平台。我们相信，每一次相遇都是缘分，每一次经历都是成长。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">发布故事</a></li>
+                        <li><a href="#">热门榜单</a></li>
+                        <li><a href="#">脱单技巧</a></li>
+                        <li><a href="#">社区公约</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：help@100kxiangqin.com</li>
+                        <li>商务合作：bd@100kxiangqin.com</li>
+                        <li>工作时间：9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 十万次相亲社区 版权所有 | 仅供交流分享，请理性对待婚恋
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const icon = item.querySelector('span');
+                icon.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
