@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="英雄联盟Mac版下载指南，提供Windows与macOS系统兼容性分析、原生M1/M2芯片适配方案、虚拟机运行技巧及游戏性能优化设置。">
+    <meta name="keywords" content="英雄联盟mac, 英雄联盟mac下载, 英雄联盟苹果电脑, 英雄联盟M1芯片, 英雄联盟mac性能">
+    <title>英雄联盟mac-原生M1/M2芯片适配与性能优化指南</title>
+    <style>
+        :root {
+            --primary-color: #00a8ff;
+            --secondary-color: #2f3542;
+            --accent-color: #e84118;
+            --text-color: #2f3542;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2f3542 0%, #1e272e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Compatibility Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #747d8c;
+        }
+
+        .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            border-top: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card.m1 {
+            border-color: #5352ed;
+        }
+
+        .card.m2 {
+            border-color: #00a8ff;
+        }
+
+        .card.windows {
+            border-color: #e84118;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .card ul {
+            margin-top: 15px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #57606f;
+        }
+
+        .card li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Guide Section */
+        .guide-content {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .guide-step {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .guide-step h3 {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+        }
+
+        .guide-step p {
+            color: #57606f;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background-color: #f1f2f6;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9rem;
+            color: #2f3542;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #57606f;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #a4b0be;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-tags {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span>League</span>Mac
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#download">下载指南</a></li>
+                    <li><a href="#compatibility">兼容性</a></li>
+                    <li><a href="#performance">性能优化</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="cta-button">开始下载</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-tags">
+                    <span class="tag">M1 / M2 芯片支持</span>
+                    <span class="tag">原生 OpenGL 适配</span>
+                    <span class="tag">性能提升指南</span>
+                </div>
+                <h1>在 Mac 上畅玩英雄联盟<br>原生系统与性能优化全解析</h1>
+                <p>无论您使用的是搭载 M1、M2 芯片的 MacBook Air 或 Pro，还是 Intel 处理器，本文为您提供最详细的英雄联盟 Mac 版安装、运行及帧率优化方案。</p>
+                <div style="margin-top: 30px;">
+                    <a href="#download" class="cta-button" style="background-color: white; color: var(--accent-color);">查看安装步骤</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compatibility Section -->
+        <section id="compatibility" class="container">
+            <div class="section-title">
+                <h2>系统兼容性指南</h2>
+                <p>确认您的设备是否支持英雄联盟 Mac 版运行</p>
+            </div>
+            <div class="compatibility-grid">
+                <!-- Apple Silicon -->
+                <article class="card m1">
+                    <div class="card-icon">🍎</div>
+                    <h3>Apple Silicon (M1/M2/M3)</h3>
+                    <p>支持原生运行，无需虚拟机，性能最佳。</p>
+                    <ul>
+                        <li>支持 macOS Monterey, Ventura, Sonoma</li>
+                        <li>原生 OpenGL 3.0+ 支持</li>
+                        <li>建议内存：16GB 起步</li>
+                        <li>显卡：集成显卡即可流畅运行</li>
+                    </ul>
+                </article>
+
+                <!-- Intel -->
+                <article class="card windows">
+                    <div class="card-icon">💻</div>
+                    <h3>Intel 处理器 Mac</h3>
+                    <p>使用 Boot Camp 或虚拟机运行。</p>
+                    <ul>
+                        <li>支持 macOS 10.13 - 10.15</li>
+                        <li>Boot Camp 方案：安装 Windows 10/11</li>
+                        <li>虚拟机方案：Parallels Desktop / VMware Fusion</li>
+                        <li>注意：Intel Mac 已停止系统更新支持</li>
+                    </ul>
+                </article>
+
+                <!-- ARM Windows -->
+                <article class="card m2">
+                    <div class="card-icon">🔄</div>
+                    <h3>ARM 版 Windows (Surface Pro X 等)</h3>
+                    <p>通过虚拟机运行，需配置特定环境。</p>
+                    <ul>
+                        <li>需使用 Windows on ARM</li>
+                        <li>推荐虚拟机：VMware Workstation Pro</li>
+                        <li>游戏兼容性：需开启虚拟化加速</li>
+                        <li>注意：可能存在部分启动问题</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Download & Setup Section -->
+        <section id="download" class="container">
+            <div class="section-title">
+                <h2>安装与运行指南</h2>
+                <p>针对不同设备系统的详细操作步骤</p>
+            </div>
+            <div class="guide-content">
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3>下载客户端</h3>
+                    </div>
+                    <p>请访问官方网站或指定的 Mac 资源下载站。确保下载的安装包文件名为 <code>League of Legends.dmg</code>，避免下载到病毒或捆绑软件。</p>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3>安装与激活</h3>
+                    </div>
+                    <p>将 .dmg 文件拖入“应用程序”文件夹进行安装。首次运行时，系统可能会弹出安全提示，请选择“打开”以允许运行。首次启动需要联网验证账号。</p>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3>Intel Mac 用户特殊设置</h3>
+                    </div>
+                    <p>如果您使用的是 Intel 芯片 Mac，建议使用 <strong>Parallels Desktop</strong> 虚拟机安装 Windows 11，并开启“3D 图形加速”功能，这比 Boot Camp 更便于调试和回退。</p>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <h3>解决闪退或黑屏问题</h3>
+                    </div>
+                    <p>如果游戏启动后闪退，请尝试以下命令重置网络缓存（适用于 Mac 原生客户端）：</p>
+                    <div class="code-block">
+                        cd ~/Library/Application\ Support/League\ of\ Legends && rm -rf RADS && open /Applications/League\ of\ Legends.app
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section id="performance" class="container">
+            <div class="section-title">
+                <h2>性能优化设置</h2>
+                <p>提升帧率与降低延迟的实用技巧</p>
+            </div>
+            <div class="guide-content">
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3>关闭后台应用</h3>
+                    </div>
+                    <p>Mac 系统资源有限，运行大型游戏时请关闭浏览器、邮件、Safari 标签页以及系统更新进程，释放内存和 CPU 占用。</p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3>系统设置调整</h3>
+                    </div>
+                    <ul>
+                        <li><strong>电池模式：</strong> 插电运行，并确保“高性能模式”已开启。</li>
+                        <li><strong>显示器设置：</strong> 在系统设置中将“自动调节亮度”和“降低白点”关闭，确保色彩配置为“sRGB”。</li>
+                        <li><strong>触控板/鼠标：</strong> 在游戏设置中调整灵敏度，确保不发生鼠标漂移。</li>
+                    </ul>
+                </div>
+                <div class="guide-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3>游戏内画质设置</h3>
+                    </div>
+                    <p>对于 M1/M2 芯片，建议将“阴影质量”和“特效质量”设为“中”或“低”，将“垂直同步”关闭，以获得更稳定的帧率。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container">
+            <div class="section-title">
+                <h2>常见问题 (FAQ)</h2>
+                <p>关于英雄联盟 Mac 版的疑问解答</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        英雄联盟 Mac 版是原生支持吗？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        目前官方推出的 Mac 版客户端是基于 OpenGL 技术构建的，针对 Apple Silicon 芯片进行了优化，可以原生运行，无需虚拟机。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        M1 MacBook Air 能流畅运行吗？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        可以。搭载 8GB 内存和 7 核或 8 核 GPU 的 MacBook Air 在设置中画质适中时，可以保持 60FPS 左右的流畅度。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        闪退了怎么办？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        请尝试删除游戏客户端缓存文件夹（Library/Application Support/League of Legends），然后重新启动游戏。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        可以在 iPad 上玩吗？
+                        <span class="icon-plus">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        官方目前没有推出 iPad 原生版本。如果您使用 iPad，通常需要通过 Parallels Desktop 运行 Windows 虚拟机，体验并不理想。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>LeagueMac</h4>
+                <p>致力于为 Mac 用户解决游戏兼容性问题，提供最实用的硬件配置建议与优化教程。</p>
+            </div>
+            <div class="footer-col">
+                <h4>相关链接</h4>
+                <ul>
+                    <li><a href="#">官方网站</a></li>
+                    <li><a href="#">Riot 官方支持</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>免责声明</h4>
+                <ul>
+                    <li>本站内容仅供技术交流参考</li>
+                    <li>英雄联盟为拳头游戏 (Riot Games) 旗下产品</li>
+                    <li>Mac 为苹果公司注册商标</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
